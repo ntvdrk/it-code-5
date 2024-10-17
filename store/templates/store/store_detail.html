@@ -1,0 +1,10 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Object Detail{% endblock %}
+
+{% block content %}
+<h1>{{ object.name }}</h1>
+<p>{{ object.description|default:"No description available." }}</p>
+<a href="{% url 'store-update' object.pk %}">Edit</a> |
+<a href="{% url 'store-delete' object.pk %}">Delete</a>
+{% endblock %}

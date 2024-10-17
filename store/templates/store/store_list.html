@@ -1,0 +1,18 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Object List{% endblock %}
+
+{% block content %}
+<h1>List of Objects</h1>
+<ul>
+    {% for obj in objects %}
+        <li>
+            <a href="{% url 'store-detail' obj.pk %}">{{ obj.name }}</a> 
+            ({{ obj.description|truncatechars:100 }})
+        </li>
+    {% empty %}
+        <li>No objects available.</li>
+    {% endfor %}
+</ul>
+<p>Total objects: {{ objects|length }}</p>
+{% endblock %}
