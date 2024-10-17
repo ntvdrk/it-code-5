@@ -1,13 +1,13 @@
 {% extends 'store/base.html' %}
 
-{% block title %}Create or Update Object{% endblock %}
+{% block title %}Создание объекта{% endblock %}
 
 {% block content %}
 <h1>{{ form.instance.pk|default:"Create a New Object" }}</h1>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Save</button>
+    <button type="submit">Сохранить</button>
 </form>
-<a href="{% url 'store-list' %}">Back to list</a>
+<a href="{% url 'store-list' %}">Вернуться к товарам</a>
 {% endblock %}

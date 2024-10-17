@@ -22,6 +22,7 @@ class MyModelCreateView(CreateView):
     model = store
     template_name = 'store/store_form.html'
     fields = ['name', 'description']
+    success_url = reverse_lazy('store-list')
 
 # UpdateView — обновление существующего объекта
 class MyModelUpdateView(UpdateView):

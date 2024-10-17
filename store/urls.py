@@ -9,5 +9,5 @@ urlpatterns = [
     path('<int:pk>/', MyModelDetailView.as_view(), name='store-detail'),
     path('create/', MyModelCreateView.as_view(), name='store-create'),
     path('<int:pk>/update/', MyModelUpdateView.as_view(), name='store-update'),
-    path('<int:pk>/delete/', MyModelDeleteView.as_view(), name='store-delete'),
+    path('store/<int:pk>/delete/', MyModelDeleteView.as_view(), name='store-delete'),
 ]

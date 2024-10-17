@@ -1,17 +1,20 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"
-    <title>{% block title %}Store{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Application{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="container nt-5 mb-5">
-        <a href="{% url 'store_list' %}">Stores</a>
-        <a href="{% url 'store_create' %}">Add Store</a>
+    <nav>
+        <ul>
+            <li><a href="{% url 'store-list' %}">Товары</a></li>
+            <li><a href="{% url 'store-create' %}">Создание нового объекта</a></li>
+        </ul>
     </nav>
-    <div>
+
+    <div class="content">
         {% block content %}
         {% endblock %}
     </div>
