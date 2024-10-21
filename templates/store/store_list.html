@@ -1,0 +1,40 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Товары{% endblock %}
+
+{% block sidebar %}
+<div class-"col-md-3">
+    <div class="card-body">
+        <form method="get">
+            {% csrf_token %}
+            {{ filter.form.as_p }}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary"> Поиск </button>
+            {% endbuttons %}
+        </form>
+    </div>
+</div>
+{% endblock %}
+ 
+
+{% block content %}
+<h1> Товары: <h1>
+    <div class="row">
+        {%f or store in stores %}
+        <div class="col-md-4 mt-4">
+            <div class"card h-100">
+                <div class="card-img-container">
+                    <img src="{{ store.cover.url }}" class="card-img-top img-fluid" alt= "store Cover">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ store.title}}</h5>
+                    <p class="card-text">{{store.description}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock%}
+    
+
+   
