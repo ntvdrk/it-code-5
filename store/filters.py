@@ -17,7 +17,7 @@ class Store(django_filters.FilterSet):
     term =django_filters.CharFilter(method = 'filter_term', label='')
     
     class Meta:
-        model =store.models.Store
+        model =store.models.store
         fields = ['title', 'description', 'price_range', 'term', 'available']
         
     def filter_available(self,queryset, name, value):
