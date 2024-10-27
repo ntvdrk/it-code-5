@@ -9,7 +9,22 @@ from .models import store
 
 from django_filters.views import FilterView
 
+from rest_framework import viewsets
+from rest_framework import generics
+
+
 from store.models import store
+
+from store import serializers
+
+class StoreAPI(viewsets.ModelViewSet):
+    queryset = store.objects.all()
+    serializer_class = serializers.store
+    
+    def get_price(self, obj):
+        if models.Storage.objects.filter(store=obj).exists:
+            return obj.storage.price
+        
 
 #class StoreListTemplateView(TemplateView):
 #    template_name = 'store/store_list.html'

@@ -11,8 +11,8 @@ from django.db.models import Q
 
 class Store(django_filters.FilterSet):
     price_ranga = django_filters.RangeFilter(field_name = 'storage__price', label="Цена от и до")
-    #title = django_filters.CharFilter(lookup_expr = 'icontains', label='Название')
-    #description = django_filters.CharFilter(lookup_expr = 'icontains', label='Описание')
+    title = django_filters.CharFilter(lookup_expr = 'icontains', label='Название')
+    description = django_filters.CharFilter(lookup_expr = 'icontains', label='Описание')
     available = django_filters.BooleanFilter(method='filter_available', label = "В наличии")
     term =django_filters.CharFilter(method = 'filter_term', label='')
     

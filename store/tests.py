@@ -22,6 +22,7 @@ class StoreTesrCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['store'].count(), models.store.objects.count())
     def test_get_store_detail(self):
+        
         url = reverse('store-detail', kwargs={'pk': self.store.pk})
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
@@ -45,17 +46,17 @@ class StoreTesrCase(TestCase):
         print(old_store_count, models.store.objects.count())
     
     def test_create_store(self):
-        url = reverse('store_create')
+        url = reverse('store-create')
         old_store_count = models.store.objects.count()
 
-    response = self.client.post(url, {
-        'title': 'New store Title',
-        'description': 'This is a new store description',
-    })
+        response = self.client.post(url, {
+            'name': 'New store Title',
+            'description': 'This is a new store description',
+        })
 
-    new_store_count = models.store.objects.count()
+        new_store_count = models.store.objects.count()
 
-    self.assertEqual(response.status_code, 302)
-    self.assertGreater(new_store_count, old_store_count)
+        self.assertEqual(response.status_code, 302)
+        self.assertGreater(new_store_count, old_store_count)
 
         
