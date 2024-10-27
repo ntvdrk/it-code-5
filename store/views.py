@@ -20,19 +20,14 @@ from store import serializers
 class StoreAPI(viewsets.ModelViewSet):
     queryset = store.objects.all()
     serializer_class = serializers.store
-    
-    def get_price(self, obj):
-        if models.Storage.objects.filter(store=obj).exists:
-            return obj.storage.price
-        
 
-#class StoreListTemplateView(TemplateView):
-#    template_name = 'store/store_list.html'
-#    
-#    def get_context_data(self, **kwargs):
-#        context =  super().get_context_data(**kwargs)
-#        context['store'] = store.objects.all()
-#        return context
+class StoreListTemplateView(TemplateView):
+    template_name = 'store/store_list.html'
+    
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['store'] = store.objects.all()
+        return context
         
 # ListView — отображение списка объектов
 class MyModelListView(ListView):
